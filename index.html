@@ -1,0 +1,181 @@
+<!-- C:\Users\soomi\insn\index.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>CarStyle | زينة السيارات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- خط كايرو -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background:#f0f0f0; font-family:'Cairo',sans-serif; margin:0">
+
+  <!-- استدعاء الهيدر -->
+  <div w3-include-html="header.html"></div>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="Video2.mp4" type="video/mp4">
+      متصفحك لا يدعم تشغيل الفيديو
+    </video>
+    <div class="hero-content">
+      <h1>زينة سيارات عصرية</h1>
+      <p>اكتشف أفضل الاكسسوارات التي تعكس شخصيتك</p>
+      <button class="btn">تسوق الآن</button>
+    </div>
+  </main>
+
+  <!-- قسم المنتجات -->
+  <section class="products">
+    <h2>منتجات مميزة</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images3.jpeg" alt="تعليقة سيارة بالمراية زينة">
+        <h3>تعليقة سيارة بالمراية</h3>
+        <p>35 ريال</p>
+      </div>
+      <div class="card">
+        <img src="images2.jpeg" alt="إضاءات داخلية">
+        <h3>إضاءات داخلية LED</h3>
+        <p>120 ريال</p>
+      </div>
+      <div class="card">
+        <img src="images.jpeg" alt="غطاء مقود جلدي">
+        <h3>غطاء مقود جلدي</h3>
+        <p>85 ريال</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- استدعاء الفوتر -->
+  <div w3-include-html="footer.html"></div>
+
+  <!-- CSS -->
+  <style>
+    /* ====== Hero Section ====== */
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.25);
+    }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      background: #ffda00;
+      color: #004aad;
+      border: none;
+      padding: 14px 34px;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .3s;
+    }
+    .btn:hover {
+      background: #ffc400;
+      transform: translateY(-2px);
+    }
+
+    /* ====== Products ====== */
+    .products {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .products h2 {
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #004aad;
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+      padding: 18px;
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      color: #222;
+      font-size: 20px;
+      margin: 8px 0;
+      font-weight: 600;
+    }
+    .card p {
+      color: #0077ff;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+
+  <!-- JS: استدعاء الملفات (header/footer) -->
+  <script>
+    function includeHTML() {
+      const elements = document.querySelectorAll("[w3-include-html]");
+      elements.forEach(el => {
+        const file = el.getAttribute("w3-include-html");
+        fetch(file)
+          .then(res => res.text())
+          .then(data => {
+            el.innerHTML = data;
+          });
+      });
+    }
+    includeHTML();
+  </script>
+</body>
+</html>
