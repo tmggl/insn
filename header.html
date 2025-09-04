@@ -11,19 +11,20 @@
       <li><a href="#">المنتجات</a></li>
       <li><a href="#">العروض</a></li>
       <li><a href="#">تواصل معنا</a></li>
+      <!-- زر حجز السيارة -->
+      <li><a href="booking.html" target="_blank" class="booking-btn">🚗 حجز السيارة</a></li>
     </ul>
   </nav>
 </header>    
 
 <style>
-  /* استيراد خط Cairo للاستخدام داخل الهيدر (يُنصح أيضاً بوضعه في <head> بالرئيسية) */
   @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
   :root{
-    --blue-1:#004aad;  /* أزرق أساسي */
-    --blue-2:#0077ff;  /* أزرق أفتح للتدرج */
-    --yellow:#ffda00;  /* أصفر للإبراز */
-    --gray:#f0f0f0;    /* رمادي عام */
+    --blue-1:#004aad;
+    --blue-2:#0077ff;
+    --yellow:#ffda00;
+    --gray:#f0f0f0;
   }
 
   header{
@@ -43,7 +44,6 @@
     margin-inline:auto;
   }
 
-  /* الشعار والنص */
   .brand{
     display:flex;
     align-items:center;
@@ -58,7 +58,7 @@
     object-fit:cover;
     border:2px solid var(--yellow);
     box-shadow:0 4px 10px rgba(0,0,0,.25);
-    background:#fff; /* في حال كانت الصورة شفافة */
+    background:#fff;
   }
 
   .brand-text{
@@ -68,7 +68,6 @@
     letter-spacing:.2px;
   }
 
-  /* الروابط */
   .nav-links{
     list-style:none;
     display:flex;
@@ -93,7 +92,21 @@
     transform:translateY(-1px);
   }
 
-  /* تجاوب للجوال */
+  /* زر مميز للحجز */
+  .booking-btn{
+    background: var(--yellow);
+    color: #000 !important;
+    font-weight:700;
+    border-radius:12px;
+    padding:8px 14px !important;
+    transition: all .25s ease;
+  }
+  .booking-btn:hover{
+    background:#fff;
+    color: var(--blue-1) !important;
+    transform:scale(1.05);
+  }
+
   @media (max-width: 700px){
     .brand-text{ font-size:20px; }
     .nav-links{ gap:12px; }
